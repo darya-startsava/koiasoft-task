@@ -12,6 +12,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { HeaderComponent } from './header/header.component';
 import { MainSectionComponent } from './main-section/main-section.component';
 import { RightSideSectionComponent } from './right-side-section/right-side-section.component';
@@ -29,9 +32,12 @@ import { RightSideSectionComponent } from './right-side-section/right-side-secti
         MatCheckboxModule,
         MatInputModule,
         MatDatepickerModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        MatSelectModule,
+        MatFormFieldModule
     ],
-    providers: [],
+    providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline' } }],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
+

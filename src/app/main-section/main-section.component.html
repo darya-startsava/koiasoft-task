@@ -1,3 +1,23 @@
 <div class="main-section_wrapper">
   <h2>New meeting</h2>
+  <mat-label class="sub-title">Meeting name</mat-label>
+  <mat-form-field class="input_wrapper meeting-name_input_wrapper">
+    <input matInput placeholder="Add meeting name" value="CompanyName Board Meeting No.12">
+    <button mat-icon-button matSuffix (click)="onClearMeetingNameField()" type="button">
+      <mat-icon class="clear_icon">clear</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-label class="sub-title">Date and time</mat-label>
+  <mat-form-field class="input_wrapper">
+    <input matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select>
+      <mat-option *ngFor="let point of points" [value]="point.value">
+        {{point.time}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>

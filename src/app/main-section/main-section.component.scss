@@ -2,4 +2,25 @@
   width: 70%;
   margin: 0 auto;
   padding: 20px;
+
+  .sub-title {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 28px;
+  }
+
+  .input_wrapper {
+    margin-top: 10px;
+    margin-bottom: 30px;
+
+    &.meeting-name_input_wrapper {
+      width: 100%;
+    }
+
+    .clear_icon {
+      opacity: 0.5;
+    }
+  }
+
+
 }
