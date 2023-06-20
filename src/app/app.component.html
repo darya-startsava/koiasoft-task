@@ -1,3 +1,14 @@
+<div class="app-container">
+  <app-header></app-header>
+  <mat-divider></mat-divider>
+  <div class="container">
+    <app-main-section></app-main-section>
+    <mat-divider [vertical]="true"></mat-divider>
+    <app-right-side-section></app-right-side-section>
+  </div>
+</div>
+
+
 <mat-button-toggle-group name="favoriteColor" aria-label="Favorite Color">
   <mat-button-toggle mat-raised-button value="red">Red</mat-button-toggle>
   <mat-button-toggle value="green">Green</mat-button-toggle>

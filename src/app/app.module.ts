@@ -13,9 +13,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HeaderComponent } from './header/header.component';
+import { MainSectionComponent } from './main-section/main-section.component';
+import { RightSideSectionComponent } from './right-side-section/right-side-section.component';
 
 @NgModule({
-    declarations: [AppComponent, HeaderComponent],
+    declarations: [AppComponent, HeaderComponent, MainSectionComponent, RightSideSectionComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,

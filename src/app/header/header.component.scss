@@ -1,0 +1,11 @@
+.header_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1440px;
+
+  .header_buttons_wrapper {
+    display: flex;
+    column-gap: 10px;
+  }
+}
