@@ -3,6 +3,11 @@
   margin: 0 auto;
   padding: 20px;
 
+  .button-group_wrapper {
+    display: flex;
+    column-gap: 10px;
+  }
+
   .sub-title {
     font-size: 16px;
     font-weight: 500;
@@ -10,8 +15,7 @@
   }
 
   .input_wrapper {
-    margin-top: 10px;
-    margin-bottom: 30px;
+    margin: 10px 10px 30px 0;
 
     &.meeting-name_input_wrapper {
       width: 100%;
@@ -22,5 +26,12 @@
     }
   }
 
+  ::ng-deep .mat-mdc-select-arrow {
+    opacity: 0;
+  }
+
+  .time_dash{
+    margin: 0 10px;
+  }
 
 }

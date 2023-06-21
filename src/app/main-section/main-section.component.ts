@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ButtonGroupItem } from '../shared/button-group/button-group-item';
 
 @Component({
     selector: 'app-main-section',
@@ -23,6 +24,10 @@ export class MainSectionComponent {
     ];
     onClearMeetingNameField(): void {
         console.log('clear');
+    }
+
+    onButtonGroupChange($event: ButtonGroupItem) {
+        alert(`${$event.id} - ${$event.isActive}`);
     }
 }
 

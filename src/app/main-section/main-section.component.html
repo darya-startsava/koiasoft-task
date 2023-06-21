@@ -1,23 +1,42 @@
 <div class="main-section_wrapper">
   <h2>New meeting</h2>
-  <mat-label class="sub-title">Meeting name</mat-label>
+  <div>
+    <button-group class="button-group_wrapper" (change)="onButtonGroupChange($event)">
+      <button-group-item id="board-meeting" [isActive]="true">Board meeting</button-group-item>
+      <button-group-item id="general-assemebly">General assembly</button-group-item>
+      <button-group-item id="other">Other</button-group-item>
+    </button-group>
+  </div>
+  <mat-label for="meeting-name" class="sub-title">Meeting name</mat-label>
   <mat-form-field class="input_wrapper meeting-name_input_wrapper">
-    <input matInput placeholder="Add meeting name" value="CompanyName Board Meeting No.12">
+    <input id="meeting-name" matInput placeholder="Add meeting name" value="CompanyName Board Meeting No.12">
     <button mat-icon-button matSuffix (click)="onClearMeetingNameField()" type="button">
       <mat-icon class="clear_icon">clear</mat-icon>
     </button>
   </mat-form-field>
-  <mat-label class="sub-title">Date and time</mat-label>
-  <mat-form-field class="input_wrapper">
-    <input matInput [matDatepicker]="picker">
-    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-select>
-      <mat-option *ngFor="let point of points" [value]="point.value">
-        {{point.time}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  <div>
+    <mat-label for="date" class="sub-title">Date and time</mat-label>
+    <div>
+      <mat-form-field class="input_wrapper">
+        <input id="date" matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select>
+          <mat-option *ngFor="let point of points" [value]="point.value">
+            {{point.time}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <span class="time_dash"> - </span>
+      <mat-form-field>
+        <mat-select>
+          <mat-option *ngFor="let point of points" [value]="point.value">
+            {{point.time}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
 </div>

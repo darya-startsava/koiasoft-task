@@ -1,0 +1,10 @@
+<button *ngIf="isActive" mat-flat-button color="primary" (click)="toggle()">
+    <ng-container *ngTemplateOutlet="outlet"></ng-container>
+</button>
+<button *ngIf="!isActive" mat-stroked-button (click)="toggle()">
+    <ng-container *ngTemplateOutlet="outlet"></ng-container>
+</button>
+
+<ng-template #outlet>
+    <ng-content></ng-content>
+</ng-template>
