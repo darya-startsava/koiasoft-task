@@ -1,5 +1,6 @@
 .main-section_wrapper {
   width: 70%;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 20px;
 
@@ -30,8 +31,17 @@
     opacity: 0;
   }
 
-  .time_dash{
+  .time_dash {
     margin: 0 10px;
+  }
+
+  .radio-button-group_wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  ::ng-deep .mdc-text-field--disabled {
+    background-color: rgba(0, 0, 0, 0.05);
   }
 
 }

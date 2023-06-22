@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ButtonGroupItem } from '../shared/button-group/button-group-item';
+import { RadioButtonGroupItem } from '../shared/radio-button-group/radio-button-group-item';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -7,7 +8,7 @@ import { FormControl } from '@angular/forms';
     templateUrl: './main-section.component.html',
     styleUrls: ['./main-section.component.scss']
 })
-export class MainSectionComponent {
+export class MainSectionComponent implements OnInit {
     points: Array<Time> = [
         { value: 0, time: '8.00' },
         { value: 1, time: '8.30' },
@@ -26,17 +27,39 @@ export class MainSectionComponent {
 
     meetingName = new FormControl('CompanyName Board Meeting No.12');
     meetingAddress = new FormControl('');
+    meetingLink = new FormControl('');
+    meetingForm = 'offline';
+
+    ngOnInit() {
+        this.meetingLink.disable();
+    }
 
     onClearMeetingNameField(): void {
         this.meetingName.setValue('');
     }
 
     onButtonGroupChange($event: ButtonGroupItem) {
-        alert(`${$event.id} - ${$event.isActive}`);
+        console.log(`${$event.id} - ${$event.isActive}`);
+    }
+
+    onRadioButtonGroupChange($event: RadioButtonGroupItem) {
+        if ($event.id) {
+            console.log(`${$event.id} - ${$event.isChecked}`);
+            this.meetingForm = $event.id;
+            if (this.meetingForm === 'online') {
+                this.meetingAddress.disable();
+                this.meetingAddress.setValue('');
+                this.meetingLink.enable();
+            } else {
+                this.meetingAddress.enable();
+                this.meetingLink.disable();
+                this.meetingLink.setValue('');
+            }
+        }
     }
 
     onDocUploaderChange($event: File[]) {
-        alert($event.map(f => f.name).join('\n'));
+        console.log($event.map(f => f.name).join('\n'));
     }
 }
 

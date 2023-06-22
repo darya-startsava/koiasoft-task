@@ -39,9 +39,15 @@
       </mat-form-field>
     </div>
     <h3 class="sub-title">Location</h3>
-    <radio-button-group class="radio-button-group_wrapper">
+    <radio-button-group class="radio-button-group_wrapper" (change)="onRadioButtonGroupChange($event)">
       <radio-button-group-item id="offline" [isChecked]="true">Address</radio-button-group-item>
+      <mat-form-field class="input_wrapper">
+        <input id="meetingAddress" matInput placeholder="Address..." [formControl]="meetingAddress">
+      </mat-form-field>
       <radio-button-group-item id="online">Online meeting</radio-button-group-item>
+      <mat-form-field class="input_wrapper">
+        <input id="meetingLink" matInput placeholder="Paste meeting link..." [formControl]="meetingLink">
+      </mat-form-field>
     </radio-button-group>
     <h3 class="sub-title">Documents</h3>
     <p>

@@ -1,9 +1,11 @@
 import { AfterContentInit, Component, ContentChildren, EventEmitter, Output, QueryList } from '@angular/core';
 import { RadioButtonGroupItem } from './radio-button-group-item';
+import { MAT_CHECKBOX_DEFAULT_OPTIONS } from '@angular/material/checkbox';
 
 @Component({
     selector: 'radio-button-group',
-    template: '<ng-content></ng-content>'
+    template: '<ng-content></ng-content>',
+    providers: [{ provide: MAT_CHECKBOX_DEFAULT_OPTIONS, useValue: { clickAction: 'noop' } }]
 })
 export class RadioButtonGroup implements AfterContentInit {
     @Output() readonly change = new EventEmitter<RadioButtonGroupItem>();
