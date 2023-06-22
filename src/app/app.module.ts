@@ -42,4 +42,3 @@ import { RightSideSectionComponent } from './right-side-section/right-side-secti
     bootstrap: [AppComponent]
 })
 export class AppModule {}
-
