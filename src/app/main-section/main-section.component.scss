@@ -4,6 +4,10 @@
   margin: 0 auto;
   padding: 20px;
 
+  .title {
+    margin-bottom: 30px;
+  }
+
   .button-group_wrapper {
     display: flex;
     column-gap: 10px;
@@ -16,7 +20,7 @@
   }
 
   .input_wrapper {
-    margin: 10px 10px 30px 0;
+    margin: 15px 10px 30px 0;
 
     &.meeting-name_input_wrapper {
       width: 100%;
@@ -38,10 +42,28 @@
   .radio-button-group_wrapper {
     display: flex;
     flex-direction: column;
+
+    .input_location_wrapper {
+      margin: 0 10px 15px 0;
+    }
   }
 
   ::ng-deep .mdc-text-field--disabled {
     background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .agenda_wrapper {
+
+    border: 1px solid rgba(0, 0, 0, 1);
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    padding: 15px;
+
+    .agenda_buttons_wrapper {
+      display: flex;
+      column-gap: 10px;
+    }
   }
 
 }
