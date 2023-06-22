@@ -9,7 +9,7 @@
   </div>
   <mat-label for="meeting-name" class="sub-title">Meeting name</mat-label>
   <mat-form-field class="input_wrapper meeting-name_input_wrapper">
-    <input id="meeting-name" matInput placeholder="Add meeting name" value="CompanyName Board Meeting No.12">
+    <input id="meeting-name" matInput placeholder="Add meeting name" [formControl]="meetingName">
     <button mat-icon-button matSuffix (click)="onClearMeetingNameField()" type="button">
       <mat-icon class="clear_icon">clear</mat-icon>
     </button>
@@ -38,10 +38,17 @@
         </mat-select>
       </mat-form-field>
     </div>
-    <div class="sub-title">Location</div>
+    <h3 class="sub-title">Location</h3>
     <radio-button-group class="radio-button-group_wrapper">
-      <radio-button-group-item id="board-meeting" [isChecked]="true">Address</radio-button-group-item>
-      <radio-button-group-item id="general-assemebly">Online meeting</radio-button-group-item>
+      <radio-button-group-item id="offline" [isChecked]="true">Address</radio-button-group-item>
+      <radio-button-group-item id="online">Online meeting</radio-button-group-item>
     </radio-button-group>
+    <h3 class="sub-title">Documents</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna
+      aliqua.
+    </p>
+    <doc-uploader (change)="onDocUploaderChange($event)"></doc-uploader>
   </div>
 </div>

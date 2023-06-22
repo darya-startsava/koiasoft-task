@@ -15,6 +15,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './header/header.component';
 import { MainSectionComponent } from './main-section/main-section.component';
@@ -36,6 +38,8 @@ import { RightSideSectionComponent } from './right-side-section/right-side-secti
         MatNativeDateModule,
         MatSelectModule,
         MatFormFieldModule,
+        FormsModule,
+        ReactiveFormsModule,
         SharedModule
     ],
     providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline' } }],

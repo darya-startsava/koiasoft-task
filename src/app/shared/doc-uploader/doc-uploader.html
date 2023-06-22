@@ -1,0 +1,16 @@
+<input type="file" class="file-input" (change)="addDoc($event)" #fileUpload />
+<div *ngIf="!files.length">No document uploaded yet</div>
+<div>
+  <div class="doc-list" *ngFor="let file of files">
+    <div class="doc">
+      <mat-icon class="material-icons-outlined">insert_drive_file</mat-icon>
+      <div class="doc-name">{{file.name}}</div>
+      <button mat-icon-button (click)="removeDoc(file)">
+        <mat-icon class="doc-remove">close</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="file-upload">
+    <button mat-stroked-button class="upload-btn" (click)="fileUpload.click()">Add document</button>
+  </div>
+</div>

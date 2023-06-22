@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ButtonGroupItem } from '../shared/button-group/button-group-item';
+import { FormControl } from '@angular/forms';
 
 @Component({
     selector: 'app-main-section',
@@ -22,12 +23,20 @@ export class MainSectionComponent {
         { value: 11, time: '13.30' },
         { value: 12, time: '14.00' }
     ];
+
+    meetingName = new FormControl('CompanyName Board Meeting No.12');
+    meetingAddress = new FormControl('');
+
     onClearMeetingNameField(): void {
-        console.log('clear');
+        this.meetingName.setValue('');
     }
 
     onButtonGroupChange($event: ButtonGroupItem) {
         alert(`${$event.id} - ${$event.isActive}`);
+    }
+
+    onDocUploaderChange($event: File[]) {
+        alert($event.map(f => f.name).join('\n'));
     }
 }
 

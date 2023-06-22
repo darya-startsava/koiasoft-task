@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined');
+
+.file-input {
+    display: none;
+}
+.doc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f7f7f7;
+    border-radius: 0.2rem;
+    margin-bottom: 0.5rem;
+}
+.doc-name {
+    width: 100%;
+    padding: 0.5rem;
+}
+.doc-remove {
+    color: #777;
+}
