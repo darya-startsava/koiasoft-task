@@ -1,0 +1,31 @@
+<div class="task-list_wrapper">
+  <div class="task-list_title_wrapper">
+    <h3 class="sub-title">Tasks</h3>
+    <button mat-stroked-button (click)="openNewTaskTitleInput()">New task</button>
+  </div>
+  <div class="task-list_item" *ngFor="let task of tasks">
+    <p *ngIf="!isTaskEdit || currentTaskEditedId !== task.id">{{task.name}}</p>
+    <div class="new-task_input_wrapper" *ngIf="isTaskEdit && currentTaskEditedId === task.id">
+      <mat-form-field>
+        <input matInput placeholder="Edit task name" [formControl]="editTaskName">
+      </mat-form-field>
+      <button mat-stroked-button (click)="onChangeTaskClick(editTaskName)">Save</button>
+      <button mat-stroked-button (click)="onCancelEditingClick()">Cancel</button>
+    </div>
+    <div>
+      <button mat-icon-button (click)="onEditTaskClick(task)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="onDeleteTaskClick(task.id)">
+        <mat-icon>clear</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="new-task_input_wrapper" *ngIf="isNewTask">
+    <mat-form-field>
+      <input matInput placeholder="Add task name" [formControl]="newTaskName">
+    </mat-form-field>
+    <button mat-stroked-button (click)="onCreateTaskClick(newTaskName)">Save task</button>
+  </div>
+  <div class="new-task_input_wrapper" *ngIf="!tasks.length">No tasks added yet</div>
+</div>

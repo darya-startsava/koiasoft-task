@@ -3,13 +3,18 @@ import { ButtonGroupItem } from '../shared/button-group/button-group-item';
 import { RadioButtonGroupItem } from '../shared/radio-button-group/radio-button-group-item';
 import { FormControl } from '@angular/forms';
 
+export interface TimeInterface {
+    value: number;
+    time: string;
+}
+
 @Component({
     selector: 'app-main-section',
     templateUrl: './main-section.component.html',
     styleUrls: ['./main-section.component.scss']
 })
 export class MainSectionComponent implements OnInit {
-    points: Array<Time> = [
+    points: Array<TimeInterface> = [
         { value: 0, time: '8.00' },
         { value: 1, time: '8.30' },
         { value: 2, time: '9.00' },
@@ -61,9 +66,4 @@ export class MainSectionComponent implements OnInit {
     onDocUploaderChange($event: File[]) {
         console.log($event.map(f => f.name).join('\n'));
     }
-}
-
-export interface Time {
-    value: number;
-    time: string;
 }
