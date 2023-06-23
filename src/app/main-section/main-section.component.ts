@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ButtonGroupItem } from '../shared/button-group/button-group-item';
 import { RadioButtonGroupItem } from '../shared/radio-button-group/radio-button-group-item';
 import { FormControl } from '@angular/forms';
+import { CollectDataService } from '../collect-data.service';
 
 export interface TimeInterface {
     value: number;
@@ -30,21 +31,37 @@ export class MainSectionComponent implements OnInit {
         { value: 12, time: '14.00' }
     ];
 
-    meetingName = new FormControl('CompanyName Board Meeting No.12');
+    meetingName = new FormControl('');
     meetingAddress = new FormControl('');
     meetingLink = new FormControl('');
     meetingForm = 'offline';
+    startDate = new Date();
+
+    constructor(private collectDataService: CollectDataService) {}
+
+    @Output()
+    dateChange: EventEmitter<MainSectionComponent> = new EventEmitter();
+
+    onDateChange(): void {
+      this.dateChange.emit();
+    }
 
     ngOnInit() {
         this.meetingLink.disable();
+        this.meetingName.setValue(this.collectDataService.meetingName);
+    }
+
+    onChange(): void {
+        this.collectDataService.saveMeetingName(this.meetingName.value || '');
     }
 
     onClearMeetingNameField(): void {
         this.meetingName.setValue('');
+        this.collectDataService.saveMeetingName('');
     }
 
     onButtonGroupChange($event: ButtonGroupItem) {
-        console.log(`${$event.id} - ${$event.isActive}`);
+        this.collectDataService.saveMeetingType($event.id);
     }
 
     onRadioButtonGroupChange($event: RadioButtonGroupItem) {

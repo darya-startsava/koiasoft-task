@@ -10,7 +10,7 @@
   </div>
   <mat-label for="meeting-name" class="sub-title">Meeting name</mat-label>
   <mat-form-field class="input_wrapper meeting-name_input_wrapper">
-    <input id="meeting-name" matInput placeholder="Add meeting name" [formControl]="meetingName">
+    <input id="meeting-name" matInput placeholder="Add meeting name" [formControl]="meetingName" (change)="onChange()">
     <button mat-icon-button matSuffix (click)="onClearMeetingNameField()" type="button">
       <mat-icon class="clear_icon">clear</mat-icon>
     </button>
@@ -19,7 +19,7 @@
     <mat-label for="date" class="sub-title">Date and time</mat-label>
     <div>
       <mat-form-field class="input_wrapper">
-        <input id="date" matInput [matDatepicker]="picker">
+        <input id="date" matInput [matDatepicker]="picker" (dateChange)="onDateChange()">
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
