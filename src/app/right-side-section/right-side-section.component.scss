@@ -2,4 +2,50 @@
   width: 90%;
   margin: 0 auto;
   padding: 20px;
+
+  .sub-title {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 28px;
+  }
+
+  ::ng-deep .mat-mdc-tab-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  }
+
+  .input_wrapper {
+    margin: 25px 10px 30px 0;
+
+    &.search_input_wrapper {
+      width: 98%;
+    }
+  }
+
+  .participant-list_wrapper {
+    width: 98%;
+
+    .all-participants_checkbox {
+      margin-bottom: 10px;
+
+    }
+
+    .participant_checkbox {
+      margin: 10px 0;
+
+      .participant_title {
+        font-size: 0.9em;
+        opacity: 0.6;
+      }
+    }
+
+    ul {
+      list-style-type: none;
+      margin-top: 4px;
+      padding-left: 0;
+    }
+  }
+
+  ::ng-deep .mat-mdc-tab-body-content {
+    overflow: hidden;
+  }
 }

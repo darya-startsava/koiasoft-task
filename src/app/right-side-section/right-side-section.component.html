@@ -1,3 +1,35 @@
 <div class="right-side-section_wrapper">
   <app-task-list></app-task-list>
+  <h3 class="sub-title">Invitees</h3>
+  <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+    <mat-tab label="Board">
+      <mat-form-field class="input_wrapper search_input_wrapper">
+        <input id="search-participants" matInput placeholder="Search..." [formControl]="search">
+        <button mat-icon-button matPrefix type="button">
+          <mat-icon class="search_icon">search</mat-icon>
+        </button>
+      </mat-form-field>
+      <div class="participant-list_wrapper">
+        <mat-checkbox class="all-participants_checkbox" [checked]="allComplete" [indeterminate]="someComplete()"
+          (change)="setAll($event.checked)">
+          {{participants.name}}
+        </mat-checkbox>
+        <mat-divider></mat-divider>
+      </div>
+      <div class="participant-list_wrapper">
+        <ul>
+          <li *ngFor="let participant of participants.participant">
+            <mat-checkbox class="participant_checkbox" [(ngModel)]="participant.completed"
+              (ngModelChange)="updateAllComplete()">
+              <div>{{participant.name}}</div>
+              <div class="participant_title">{{participant.title}}</div>
+            </mat-checkbox>
+          </li>
+        </ul>
+      </div>
+    </mat-tab>
+    <mat-tab label="Guests">
+    </mat-tab>
+  </mat-tab-group>
+
 </div>
